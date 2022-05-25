@@ -43,6 +43,7 @@ const SignUpForm = () => {
       });
       console.log(userDocRef);
       clearFormFields();
+      alert("Sign Up Successful ..!");
     } catch (error) {
       console.log("error occured", error.message);
       if (error.code === "auth/email-already-in-use") {
