@@ -5,9 +5,9 @@ import {
 } from "./../../utilities/firebase/firebase";
 import { useState } from "react";
 import FormInput from "../form-input/FormInput";
+import Button from "../button/Button";
 
 import "./SignInForm.scss";
-import Button from "../button/Button";
 
 const defaultFormFields = {
   email: "",
@@ -30,7 +30,11 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
-      await signInAuthUserWithEmailAndPassword(email, password);
+      const { user } = await signInAuthUserWithEmailAndPassword(
+        email,
+        password
+      );
+
       clearFormFields();
       alert("Log in Successful ..!");
     } catch (error) {
@@ -48,8 +52,8 @@ const SignInForm = () => {
   };
 
   const handleSignInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
+    alert("Sign in with Google is successful ..!");
   };
 
   return (
