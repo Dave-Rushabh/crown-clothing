@@ -1,7 +1,7 @@
-import CategoryMenu from "../../components/category-menu/CategoryMenu";
+import Directory from "../../components/directory/Directory";
 
 const HomePage = () => {
-  return <CategoryMenu />;
+  return <Directory />;
 };
 
 export default HomePage;
