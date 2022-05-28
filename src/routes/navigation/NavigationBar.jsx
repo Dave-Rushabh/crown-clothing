@@ -7,7 +7,12 @@ import { UserContext } from "../../components/contexts/UserContext";
 import { signOutUser } from "../../utilities/firebase/firebase";
 import { ReactComponent as CrownLogo } from "./../../assests/crown.svg";
 
-import "./NavigationBar.scss";
+import {
+  NavigationBarContainer,
+  LogoContainer,
+  NavLinksContainer,
+  NavLink,
+} from "./NavigationBarStyle";
 
 const NavigationBar = () => {
   const { currentUser } = useContext(UserContext);
@@ -15,28 +20,24 @@ const NavigationBar = () => {
 
   return (
     <>
-      <div className="navigation">
-        <Link className="logo-container" to="/">
+      <NavigationBarContainer>
+        <LogoContainer className="logo-container" to="/">
           <CrownLogo className="logo" />
-        </Link>
-        <div className="nav-links-container">
-          <Link className="nav-link" to="/shop">
-            SHOP
-          </Link>
+        </LogoContainer>
+        <NavLinksContainer>
+          <NavLink to="/shop">SHOP</NavLink>
           {currentUser ? (
-            <span className="nav-link" onClick={signOutUser}>
+            <NavLink as="span" onClick={signOutUser}>
               SIGN OUT
-            </span>
+            </NavLink>
           ) : (
-            <Link className="nav-link" to="/authentication">
-              SIGN IN
-            </Link>
+            <NavLink to="/authentication">SIGN IN</NavLink>
           )}
 
           <CartIcon />
-        </div>
+        </NavLinksContainer>
         {isCartOpen && <CartDropdown />}
-      </div>
+      </NavigationBarContainer>
 
       <Outlet />
     </>

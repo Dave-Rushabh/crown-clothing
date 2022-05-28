@@ -5,7 +5,7 @@ import {
 } from "./../../utilities/firebase/firebase";
 import { useState } from "react";
 import FormInput from "../form-input/FormInput";
-import Button from "../button/Button";
+import Button, { BUTTON_TYPES_CLASSES } from "../button/Button";
 
 import "./SignInForm.scss";
 
@@ -90,7 +90,7 @@ const SignInForm = () => {
             </Button>
             <Button
               type="button"
-              buttonType="google"
+              buttonType={BUTTON_TYPES_CLASSES.google}
               onClick={handleSignInWithGoogle}
             >
               Google SIGN IN
