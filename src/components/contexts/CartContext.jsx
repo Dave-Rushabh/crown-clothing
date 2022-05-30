@@ -67,14 +67,6 @@ export const CartContextProvider = ({ children }) => {
     setCartItem(clearCartItem(cartItems, productToBeCleared));
   };
 
-  const getTotal = () => {
-    const total = cartItems.reduce(
-      (initial, cartItem) => initial + cartItem.quantity * cartItem.price,
-      0
-    );
-    setTotal(total);
-  };
-
   const value = {
     isCartOpen,
     setIsCartOpen,
@@ -92,6 +84,14 @@ export const CartContextProvider = ({ children }) => {
       0
     );
     setCartCount(newCartCount);
+
+    const getTotal = () => {
+      const total = cartItems.reduce(
+        (initial, cartItem) => initial + cartItem.quantity * cartItem.price,
+        0
+      );
+      setTotal(total);
+    };
     getTotal();
   }, [cartItems]);
 
