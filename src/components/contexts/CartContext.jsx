@@ -92,9 +92,6 @@ export const CartContextProvider = ({ children }) => {
       0
     );
     setCartCount(newCartCount);
-  }, [cartItems]);
-
-  useEffect(() => {
     getTotal();
   }, [cartItems]);
 

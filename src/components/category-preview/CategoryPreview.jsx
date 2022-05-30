@@ -1,15 +1,16 @@
 import ProductCard from "../product-card/ProductCard";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./CategoryPreview.scss";
 
 const CategoryPreview = ({ title, products }) => {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => navigate(`${title}`);
   return (
     <>
       <div className="category-preview-container">
-        <h2>
-          <Link className="title" to={title}>
-            {title.toUpperCase()}
-          </Link>
+        <h2 onClick={handleNavigate} style={{ cursor: "pointer" }}>
+          {title.toUpperCase()}
         </h2>
         <div className="preview">
           {products

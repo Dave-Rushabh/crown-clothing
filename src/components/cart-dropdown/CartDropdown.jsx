@@ -1,7 +1,6 @@
 import {
   CartDropdownContainer,
   CartItems,
-  cartItems,
   EmptyMessage,
 } from "./CartDropdownStyle";
 import Button from "./../button/Button";

@@ -5,10 +5,12 @@ import NavigationBar from "./routes/navigation/NavigationBar";
 import Authentication from "./routes/authentication/Authentication";
 import Shop from "./routes/shop/Shop";
 import CheckOut from "./routes/checkout/CheckOut";
+import ScrollToTop from "./routes/scroll-to-top/ScrollToTop";
 
 const App = () => {
   return (
     <>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<NavigationBar />}>
           <Route index element={<HomePage />} />
